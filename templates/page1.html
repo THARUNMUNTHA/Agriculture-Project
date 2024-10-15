@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1 - Crop Prediction Input</title>
+    <style>
+        
+        form{
+            text-align:center;
+            
+        }
+        body {
+            background-image: url({{url_for('static',filename='P2.jpeg')}}); 
+            background-size : auto; 
+            
+        }
+        h1{
+            display:inline-block;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding-left : 20px;
+            
+        }
+    
+        .data {
+            width: 400px; /* Adjust width as needed */
+            margin: 0 auto; /* Center the .data div horizontally */
+            text-align: left;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); /* Adding a semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Data for Crop Prediction</h1>
+    <div class="container">
+    <div class="data">
+    <form action="/predict_crop" method="post">
+        <label for="N">NITOGEN(N)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+        <input type="text" id="N" name="N" required><br><br>
+        <label for="P">PHOSPHERES(P)&nbsp;&nbsp;&nbsp;:</label>
+        <input type="text" id="P" name="P" required><br><br>
+        <label for="K">POTASSIUM(K)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+        <input type="text" id="K" name="K" required><br><br>
+        <label for="temperature">TEMPERATURE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+        <input type="text" id="temperature" name="temperature" required><br><br>
+        <label for="humidity">HUMIDITY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+        <input type="text" id="humidity" name="humidity" required><br><br>
+        <label for="ph">PH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+        <input type="text" id="ph" name="ph" required><br><br>
+        <label for="rainfall">RAINFALL       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+        <input type="text" id="rainfall" name="rainfall" required><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2 - Crop Prediction Result</title>
+    
+    <style>
+        body {
+            background-image: url({{url_for('static',filename='P3.jpeg')}}); 
+            background-size : cover;
+            display : flex;
+            justify-content : center;
+            align-items : center;
+            height : 100vh; /* This ensures the body takes up the full height of the viewport */
+            margin : 0; /* Remove default margin */
+            padding : 0; /* Remove default padding */
+        }
+        /* Style for the content within body */
+        .content {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); /* Adding a semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        {% if invalid %}
+        <p>{{ invalid }}, the values shouldn't be zero. Please enter valid data</p>
+        {% else %}
+        {% if mininvalid %}
+        <p>{{ mininvalid }}</p>
+        {% endif %}
+        {% if maxinvalid %}
+        <p>{{ maxinvalid }}</p>
+        {% endif %}
+        {% if prediction %}
+        <h1>Predicted Outcome</h1>
+        <p><b>{{ prediction }}  </b>crop is recommended</p>
+        <form action="/enter_yield_data" method="get">
+            <button type="submit">Enter Data for Yield Prediction</button>
+        </form>
+        {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
